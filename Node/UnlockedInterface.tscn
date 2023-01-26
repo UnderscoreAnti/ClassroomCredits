@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctdilj6fmdhg0"]
+
+[ext_resource type="Script" path="res://Code/UnlockedInterface.cs" id="1_slifk"]
+
+[node name="UnlockedInterface" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_slifk")
+
+[node name="AddStudentButton" type="Button" parent="."]
+offset_left = 951.0
+offset_top = 524.0
+offset_right = 969.0
+offset_bottom = 555.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "+"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+visible = false
+offset_top = 524.0
+offset_right = 1920.0
+offset_bottom = 555.0
+size_flags_vertical = 4
+placeholder_text = "Please Enter A Name!"
+alignment = 1
+
+[connection signal="pressed" from="AddStudentButton" to="." method="OnAddStudentButtonPressed"]
+[connection signal="text_submitted" from="LineEdit" to="." method="OnNameEntered"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://djn4ttp1eeobq"]
+
+[ext_resource type="Script" path="res://Code/DemoNode.cs" id="1_hayiy"]
+[ext_resource type="PackedScene" uid="uid://bry7mft67rchj" path="res://Node/StudentAdmin.tscn" id="2_ni7ox"]
+
+[node name="DemoNode" type="Node"]
+script = ExtResource("1_hayiy")
+ObjectData = ExtResource("2_ni7ox")
+
+[node name="StudentAdmin" parent="." instance=ExtResource("2_ni7ox")]
+
+[node name="Name" parent="StudentAdmin/MainAcc/VBoxContainer" index="0"]
+text = "Shak Azulu"
+
+[node name="Total" parent="StudentAdmin/MainAcc/VBoxContainer" index="1"]
+text = "96304690"
+
+[editable path="StudentAdmin"]

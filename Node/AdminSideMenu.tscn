@@ -1,0 +1,149 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr7uoel6ni7rv"]
+
+[ext_resource type="Script" path="res://Code/AdminSideMenu.cs" id="1_yj8nu"]
+[ext_resource type="PackedScene" uid="uid://b3itc2juee1ok" path="res://Node/ClassAdmin.tscn" id="2_xr1ar"]
+
+[sub_resource type="Animation" id="Animation_h2jvc"]
+resource_name = "Fade"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_qkx0i"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.211765, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dkwjs"]
+_data = {
+"Fade": SubResource("Animation_h2jvc"),
+"RESET": SubResource("Animation_qkx0i")
+}
+
+[node name="AdminSideMenu" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_yj8nu")
+ClassScene = ExtResource("2_xr1ar")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 31.0
+
+[node name="OpenMenu" type="Button" parent="HBoxContainer"]
+offset_right = 958.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "MENU"
+
+[node name="NewClass" type="Button" parent="HBoxContainer"]
+offset_left = 962.0
+offset_right = 1920.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "+"
+
+[node name="ClassNameInput" type="LineEdit" parent="."]
+modulate = Color(0.211765, 0.2, 1, 1)
+offset_top = 35.0
+offset_right = 1920.0
+offset_bottom = 66.0
+placeholder_text = "Please Name This Class"
+alignment = 1
+
+[node name="NameInAnimP" type="AnimationPlayer" parent="ClassNameInput"]
+libraries = {
+"": SubResource("AnimationLibrary_dkwjs")
+}
+
+[connection signal="pressed" from="HBoxContainer/OpenMenu" to="." method="OpenMenuPressed"]
+[connection signal="pressed" from="HBoxContainer/NewClass" to="." method="NewClassPressed"]
+[connection signal="text_submitted" from="ClassNameInput" to="." method="ClassNameInputted"]

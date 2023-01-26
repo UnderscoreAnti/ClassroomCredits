@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://brcvradq3m6xu"]
+
+[ext_resource type="Script" path="res://Code/StudentPage.cs" id="1_oxlua"]
+[ext_resource type="PackedScene" uid="uid://ctdilj6fmdhg0" path="res://Node/UnlockedInterface.tscn" id="2_hmcst"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oxlua")
+
+[node name="MainPage" type="HFlowContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UnlockedInterface" parent="." instance=ExtResource("2_hmcst")]
+visible = false
+layout_mode = 1
+
+[connection signal="StudentNameEntered" from="UnlockedInterface" to="." method="OnStudentNameEntered"]

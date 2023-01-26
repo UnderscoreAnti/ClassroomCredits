@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3itc2juee1ok"]
+
+[ext_resource type="Script" path="res://Code/ClassAdmin.cs" id="1_e5klu"]
+
+[node name="ClassAdmin" type="HBoxContainer"]
+offset_right = 130.0
+offset_bottom = 31.0
+script = ExtResource("1_e5klu")
+
+[node name="SelectClass" type="Button" parent="."]
+offset_right = 106.0
+offset_bottom = 31.0
+text = "CLASS NAME"
+
+[node name="UnlockClass" type="Button" parent="."]
+offset_left = 110.0
+offset_right = 172.0
+offset_bottom = 31.0
+text = "Unlock"
+
+[node name="NewStudent" type="Button" parent="."]
+offset_left = 176.0
+offset_right = 284.0
+offset_bottom = 31.0
+text = "New Student"
+
+[node name="Delete" type="Button" parent="."]
+offset_left = 288.0
+offset_right = 308.0
+offset_bottom = 31.0
+text = "D"
+
+[connection signal="pressed" from="SelectClass" to="." method="SelectClassPressed"]
+[connection signal="pressed" from="UnlockClass" to="." method="UnlockClassPressed"]
+[connection signal="pressed" from="NewStudent" to="." method="NewStudentPressed"]
+[connection signal="pressed" from="Delete" to="." method="DeletePressed"]

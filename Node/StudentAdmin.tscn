@@ -1,0 +1,190 @@
+[gd_scene load_steps=6 format=3 uid="uid://bry7mft67rchj"]
+
+[ext_resource type="Script" path="res://Code/StudentAdmin.cs" id="1_ahp4l"]
+[ext_resource type="Texture2D" uid="uid://dgud32kt8ul8r" path="res://icon.svg" id="1_o0moy"]
+
+[sub_resource type="Animation" id="Animation_h2jvc"]
+resource_name = "Fade"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_qkx0i"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.211765, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dkwjs"]
+_data = {
+"Fade": SubResource("Animation_h2jvc"),
+"RESET": SubResource("Animation_qkx0i")
+}
+
+[node name="StudentAdmin" type="VBoxContainer"]
+offset_right = 232.0
+offset_bottom = 163.0
+script = ExtResource("1_ahp4l")
+
+[node name="MainAcc" type="HBoxContainer" parent="."]
+offset_right = 232.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Char" type="TextureRect" parent="MainAcc"]
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("1_o0moy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainAcc"]
+offset_left = 132.0
+offset_right = 232.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Name" type="Label" parent="MainAcc/VBoxContainer"]
+offset_top = 18.0
+offset_right = 100.0
+offset_bottom = 44.0
+text = "DEMO NAME"
+
+[node name="TempName" type="LineEdit" parent="MainAcc/VBoxContainer"]
+visible = false
+offset_top = 31.0
+offset_right = 100.0
+offset_bottom = 62.0
+
+[node name="Total" type="Label" parent="MainAcc/VBoxContainer"]
+offset_top = 48.0
+offset_right = 100.0
+offset_bottom = 74.0
+text = "0000"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainAcc/VBoxContainer"]
+offset_top = 78.0
+offset_right = 100.0
+offset_bottom = 109.0
+
+[node name="Deposit" type="Button" parent="MainAcc/VBoxContainer/HBoxContainer"]
+offset_right = 30.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "^"
+
+[node name="Withdrawal" type="Button" parent="MainAcc/VBoxContainer/HBoxContainer"]
+offset_left = 34.0
+offset_right = 65.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "v"
+
+[node name="Delete" type="Button" parent="MainAcc/VBoxContainer/HBoxContainer"]
+offset_left = 69.0
+offset_right = 100.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "D"
+
+[node name="Amount" type="LineEdit" parent="."]
+modulate = Color(0.211765, 0.2, 1, 1)
+offset_top = 132.0
+offset_right = 232.0
+offset_bottom = 163.0
+placeholder_text = "Enter Numeric Value"
+alignment = 1
+
+[node name="AmountAP" type="AnimationPlayer" parent="Amount"]
+libraries = {
+"": SubResource("AnimationLibrary_dkwjs")
+}
+
+[connection signal="text_submitted" from="MainAcc/VBoxContainer/TempName" to="." method="TempNameChanged"]
+[connection signal="pressed" from="MainAcc/VBoxContainer/HBoxContainer/Deposit" to="." method="DepositPressed"]
+[connection signal="pressed" from="MainAcc/VBoxContainer/HBoxContainer/Withdrawal" to="." method="WithdrawalPressed"]
+[connection signal="pressed" from="MainAcc/VBoxContainer/HBoxContainer/Delete" to="." method="DeletePressed"]
+[connection signal="text_submitted" from="Amount" to="." method="ChangeAmount"]
