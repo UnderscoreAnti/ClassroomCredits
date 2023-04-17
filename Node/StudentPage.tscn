@@ -20,5 +20,3 @@ offset_bottom = 40.0
 [node name="UnlockedInterface" parent="." instance=ExtResource("2_hmcst")]
 visible = false
 layout_mode = 1
-
-[connection signal="StudentNameEntered" from="UnlockedInterface" to="." method="OnStudentNameEntered"]

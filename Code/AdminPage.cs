@@ -79,27 +79,27 @@ public partial class AdminPage : Control
 		Rpc(nameof(RequestClassUnlock));
 	}
 
-	[RPC]
+	[Rpc]
 	public void ProcessClassData(Array<Dictionary<string, string>> ClassData)
 	{
 		GetCurrentClassDataOld(ClassData);
 	}
 
-	[RPC]
+	[Rpc]
 	public void UpdateClassName(string NewName)
 	{
 		CurrentClassName = NewName;
 		AdminMenu.ClassNameChangedOnServer(NewName);
 	}
 	
-	[RPC]
+	[Rpc]
 	public void ConfirmServerConnection(string ServerMessage)
 	{
 		GD.Print($"{ServerMessage}");
 		SendAdminData();
 	}
 	
-	[RPC]
+	[Rpc]
 	public void OnStudentNameEntered(string NewStudentName)
 	{
 		RpcId(ServerID, nameof(OnStudentNameEntered), NewStudentName);
@@ -107,47 +107,47 @@ public partial class AdminPage : Control
 	
 	// GD BoilerPlate
 
-	[RPC]
+	[Rpc]
 	public void GetAdminData()
 	{
 		//
 	}
 	
-	[RPC]
+	[Rpc]
 	public void AddNewClassToDatabase()
 	{
 		//
 	}
 	
-	[RPC]
+	[Rpc]
 	public void CurrentClassUpdate(string StudentName, bool isRemoval = false)
 	{
 		GD.Print("Update ClassData RPC call received on Admin!");
 	}
 	
-	[RPC]
+	[Rpc]
 	public void GetCurrentClassData(string selectedClass) {  }
 
 
-	[RPC]
+	[Rpc]
 	public void UpdateDataReqest(int RequestType)
 	{
 		//
 	}
 	
-	[RPC]
+	[Rpc]
 	public void RequestClassUnlock(bool isUnlockRequest = true)
 	{
 		//
 	}
 	
-	[RPC]
+	[Rpc]
 	public void ClassUnlocked(bool isUnlocked = false)
 	{
 		//
 	}
 
-	[RPC]
+	[Rpc]
 	public void RequestAddNewStudent(Dictionary<string, string> StudentData)
 	{
 		//

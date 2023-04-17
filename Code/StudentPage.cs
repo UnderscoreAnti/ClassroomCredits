@@ -43,70 +43,70 @@ public partial class StudentPage : Control
 		MainPage.AddChild(InstanceClass);
 	}
 
-	[RPC]
+	[Rpc]
 	public void OnStudentNameEntered(string NewStudentName)
 	{
 		RpcId(ServerID, nameof(OnStudentNameEntered), NewStudentName);
 	}
 	
 
-	[RPC]
+	[Rpc]
 	public void ProcessClassData(Array<Dictionary<string, string>> ClassData) { }
 	
-	[RPC]
+	[Rpc]
 	public void UpdateClassName(string ClassName) { }
 	
 	// GD Boilerplate
 	
-	[RPC]
+	[Rpc]
 	public void GetAdminData()
 	{
 		//
 	}
 	
-	[RPC]
+	[Rpc]
 	public void GetCurrentClassData(string selectedClass)
 	{
 		GD.Print("ClassData RPC call received on Student!");
 	}
 
-	[RPC]
+	[Rpc]
 	public void CurrentClassUpdate(string StudentName, bool isRemoval = false)
 	{
 		GD.Print("Update ClassData RPC call received on Student!");
 	}
 
-	[RPC]
+	[Rpc]
 	public void ClassUnlocked(bool isUnlocked = false)
 	{
 		
 	}
 
-	[RPC]
+	[Rpc]
 	public void RequestAddNewStudent(Dictionary<string, string> StudentData)
 	{
 		GD.Print("Add New Student RPC call sent on Student!");
 	}
 
-	[RPC]
+	[Rpc]
 	public void ConfirmServerConnection(string ServerMessage)
 	{
 		GD.Print($"{ServerMessage}");
 	}
 	
-	[RPC]
+	[Rpc]
 	public void RequestClassUnlock(bool isUnlockRequest = true)
 	{
 		//
 	}
 
-	[RPC]
+	[Rpc]
 	public void UpdateDataReqest(int RequestType)
 	{
 		//
 	}
 	
-	[RPC]
+	[Rpc]
 	public void AddNewClassToDatabase()
 	{
 		//

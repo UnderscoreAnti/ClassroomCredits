@@ -17,7 +17,7 @@ script = ExtResource("1_7nl2t")
 StudentAdminScene = ExtResource("1_e6a1e")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -25,7 +25,7 @@ grow_vertical = 2
 color = Color(0.176471, 0.282353, 0.32549, 1)
 
 [node name="MainMenu" type="HBoxContainer" parent="."]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -34,14 +34,11 @@ alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AdminSideMenu" parent="MainMenu" instance=ExtResource("1_vrvcq")]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 
 [node name="MainPage" type="HFlowContainer" parent="MainMenu"]
 layout_direction = 2
+layout_mode = 2
 size_flags_horizontal = 3
-
-[connection signal="ChangeDictKeyName" from="MainMenu/AdminSideMenu" to="." method="NewNameInputted"]
-[connection signal="ClassSelected" from="MainMenu/AdminSideMenu" to="." method="GetSelectedClass"]
-[connection signal="NewClassCreated" from="MainMenu/AdminSideMenu" to="." method="NewClassToDataBaseRequest"]
-[connection signal="NewStudentCalled" from="MainMenu/AdminSideMenu" to="." method="AddNewStudentToMainPage"]

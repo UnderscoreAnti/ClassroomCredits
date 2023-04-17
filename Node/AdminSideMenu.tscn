@@ -115,27 +115,21 @@ script = ExtResource("1_yj8nu")
 ClassScene = ExtResource("2_xr1ar")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 1920.0
-offset_bottom = 31.0
+layout_mode = 2
 
 [node name="OpenMenu" type="Button" parent="HBoxContainer"]
-offset_right = 958.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "MENU"
 
 [node name="NewClass" type="Button" parent="HBoxContainer"]
-offset_left = 962.0
-offset_right = 1920.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "+"
 
 [node name="ClassNameInput" type="LineEdit" parent="."]
 modulate = Color(0.211765, 0.2, 1, 1)
-offset_top = 35.0
-offset_right = 1920.0
-offset_bottom = 66.0
+layout_mode = 2
 placeholder_text = "Please Name This Class"
 alignment = 1
 

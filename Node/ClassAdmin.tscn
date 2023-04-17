@@ -8,26 +8,19 @@ offset_bottom = 31.0
 script = ExtResource("1_e5klu")
 
 [node name="SelectClass" type="Button" parent="."]
-offset_right = 106.0
-offset_bottom = 31.0
+layout_mode = 2
 text = "CLASS NAME"
 
 [node name="UnlockClass" type="Button" parent="."]
-offset_left = 110.0
-offset_right = 172.0
-offset_bottom = 31.0
+layout_mode = 2
 text = "Unlock"
 
 [node name="NewStudent" type="Button" parent="."]
-offset_left = 176.0
-offset_right = 284.0
-offset_bottom = 31.0
+layout_mode = 2
 text = "New Student"
 
 [node name="Delete" type="Button" parent="."]
-offset_left = 288.0
-offset_right = 308.0
-offset_bottom = 31.0
+layout_mode = 2
 text = "D"
 
 [connection signal="pressed" from="SelectClass" to="." method="SelectClassPressed"]
